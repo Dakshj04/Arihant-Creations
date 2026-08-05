@@ -1,26 +1,222 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ─── Arihant Creations Luxury Design System ─────────────────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Brand Primary & Secondary extracted from official logo */
+  --color-navy: #081C4B;
+  --color-navy-hover: #0E2E78;
+  --color-navy-dark: #040E26;
+  
+  --color-red: #C5161D;
+  --color-red-hover: #A31016;
+  --color-red-light: #FDF2F2;
+
+  /* Neutrals */
+  --color-background: #F8F9FB;
+  --color-light-gray: #EEF2F6;
+  --color-dark-text: #111827;
+  --color-muted-text: #6B7280;
+  --color-border: #EEF2F6;
+  --color-pure-white: #FFFFFF;
+
+  /* Typography */
+  --font-heading: var(--font-plus-jakarta-sans), system-ui, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ─── Base Reset ───────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-background);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  color: var(--color-dark-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-navy);
+}
+
+/* ─── Container ────────────────────────────────────────────────────────────── */
+.container-custom {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* ─── Section Headings ─────────────────────────────────────────────────────── */
+.section-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-red);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--color-navy);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-title {
+    font-size: 3.25rem;
+  }
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--color-muted-text);
+  max-width: 680px;
+}
+
+/* ─── Button Styles ────────────────────────────────────────────────────────── */
+/* Primary Button (Navy) */
+.btn-primary {
+  background-color: var(--color-navy);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: 14px;
+  padding: 0.875rem 1.75rem;
+  display: inline-flex;
+  items-center: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(8, 28, 75, 0.15);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-navy-hover);
+  transform: scale(1.02);
+}
+
+/* Secondary Button (White with Navy Border) */
+.btn-secondary {
+  background-color: #ffffff;
+  color: var(--color-navy);
+  border: 1.5px solid var(--color-navy);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: 14px;
+  padding: 0.875rem 1.75rem;
+  display: inline-flex;
+  items-center: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-light-gray);
+  transform: scale(1.02);
+}
+
+/* CTA / Accent Button (Red) */
+.btn-cta {
+  background-color: var(--color-red);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: 14px;
+  padding: 0.875rem 1.75rem;
+  display: inline-flex;
+  items-center: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(197, 22, 29, 0.25);
+}
+
+.btn-cta:hover {
+  background-color: var(--color-red-hover);
+  transform: scale(1.02);
+}
+
+/* ─── Card Base ────────────────────────────────────────────────────────────── */
+.card-base {
+  background-color: #ffffff;
+  border: 1px solid var(--color-light-gray);
+  border-radius: 16px;
+  padding: 1.75rem;
+  box-shadow: 0 2px 8px rgba(8, 28, 75, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card-base:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(8, 28, 75, 0.08);
+  border-color: rgba(8, 28, 75, 0.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-base:hover {
+    transform: none;
+  }
+}
+
+/* Scrollbar Hide */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
