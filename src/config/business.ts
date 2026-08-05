@@ -1,15 +1,15 @@
 // ─── Business Configuration ──────────────────────────────────────────────────
-// Update values here to configure company details across the entire application.
+// Official business contact details for Arihant Creations.
 
 export const BUSINESS = {
   name: "Arihant Creations",
   tagline: "Premium Aluminium Windows & Doors Built for Modern Living",
   subTagline: "Precision-engineered for luxury Indian residences and modern architectural spaces.",
   
-  // Contact details — editable without code changes
-  phone: "+91-9876543210",              // TODO: Replace with official phone number
-  whatsapp: "919876543210",             // TODO: Replace with official WhatsApp number (digits only, with country code)
-  email: "arihantcreations.business@gmail.com", // Recipient for quote requests
+  // Official Contact Details
+  phone: "+91-9829195546",
+  whatsapp: "919829195546",
+  email: "arihantcreations.business@gmail.com",
   
   address: {
     street: "Industrial Area, Sector 5",
