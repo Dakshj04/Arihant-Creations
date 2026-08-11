@@ -16,18 +16,20 @@ export interface SignatureProject {
 
 // ─── High-Res Architectural Photography Asset Mapping ───────────────────────
 export const IMAGES = {
-  heroVilla: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1600&q=85",
-  heroDetail: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=85",
-  brandCraftsmanship: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85",
-  slidingDoors: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1400&q=85",
-  casementWindows: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=1200&q=85",
-  officePartitions: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=85",
-  glassRailings: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=85",
-  facadeCladding: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1400&q=85",
-  projectAlibaug: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=85",
-  projectWorli: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=85",
-  projectBKC: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=85",
-  projectJuhu: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1400&q=85",
+  heroVilla: "/ChatGPT Image Aug 5, 2026, 03_05_05 PM.png",
+  heroDetail: "/ChatGPT Image Aug 5, 2026, 03_02_30 PM.png",
+  brandCraftsmanship: "/ChatGPT Image Aug 5, 2026, 03_14_08 PM.png",
+  slidingDoors: "/ChatGPT Image Aug 5, 2026, 03_05_05 PM.png",
+  casementWindows: "/ChatGPT Image Aug 5, 2026, 03_02_30 PM.png",
+  officePartitions: "/ChatGPT Image Aug 5, 2026, 03_14_08 PM.png",
+  glassRailings: "/ChatGPT Image Aug 5, 2026, 03_19_22 PM.png",
+  facadeCladding: "/ChatGPT Image Aug 5, 2026, 03_14_08 PM.png",
+  projectAlibaug: "/ChatGPT Image Aug 5, 2026, 03_05_05 PM.png",
+  projectWorli: "/ChatGPT Image Aug 5, 2026, 03_19_22 PM.png",
+  projectBKC: "/ChatGPT Image Aug 5, 2026, 03_14_08 PM.png",
+  projectJuhu: "/ChatGPT Image Aug 5, 2026, 03_02_30 PM.png",
+  backgroundImage: "/Background_Image.png",
+  logo: "/logo.png",
 };
 
 // ─── Trust Badges ────────────────────────────────────────────────────────────

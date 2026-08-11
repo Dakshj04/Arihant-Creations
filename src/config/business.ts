@@ -36,9 +36,9 @@ export const BUSINESS = {
 // ─── Navigation ──────────────────────────────────────────────────────────────
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "Products", href: "#products" },
-  { label: "Process", href: "#process" },
-  { label: "Why Us", href: "#why-choose" },
-  { label: "Testimonials", href: "#testimonials" },
-  { label: "Contact", href: "#contact" },
+  { label: "Products", href: "/#products" },
+  { label: "Process", href: "/#process" },
+  { label: "Why Us", href: "/#why-choose" },
+  { label: "Testimonials", href: "/#testimonials" },
+  { label: "Contact", href: "/#contact" },
 ];

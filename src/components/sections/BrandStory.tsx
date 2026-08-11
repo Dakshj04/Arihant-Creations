@@ -19,6 +19,7 @@ export default function BrandStory() {
                   src={IMAGES.brandCraftsmanship}
                   alt="Modern architectural glass facade engineered by Arihant Creations"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700 hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#081C4B]/40 via-transparent to-transparent" />

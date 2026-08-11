@@ -150,6 +150,7 @@ export default function BeforeAfter() {
                   src="/Background_Image.png"
                   alt="Udaipur Lake and Aravalli Hills panorama"
                   fill
+                  sizes="100vw"
                   className="object-cover"
                   style={{
                     filter: `brightness(${1 + pct * 0.10}) saturate(${1 + pct * 0.06})`,

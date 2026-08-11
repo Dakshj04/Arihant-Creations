@@ -25,17 +25,22 @@ export default function CTASection() {
 
       <div className="relative z-10 container-custom text-center">
         <FadeIn>
-          <span className="inline-block text-[#C5161D] text-xs font-extrabold uppercase tracking-[0.2em] mb-4 bg-white/10 px-4 py-1.5 rounded-full border border-white/10">
-            Book Site Survey
-          </span>
-          <h2 className="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl text-white mb-4 max-w-3xl mx-auto leading-tight">
-            Elevate Your Residence With <span className="text-[#C5161D]">Arihant Creations</span>
+          <div className="flex justify-center mb-4">
+            <span className="inline-block text-[#C5161D] text-xs font-extrabold uppercase tracking-[0.2em] bg-white/10 px-4 py-1.5 rounded-full border border-white/10">
+              Book Site Survey
+            </span>
+          </div>
+
+          <h2 className="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl text-white mb-4 max-w-3xl mx-auto leading-tight text-center">
+            <span className="block sm:inline text-white">Elevate Your Residence With </span>
+            <span className="text-[#C5161D] block sm:inline mt-1 sm:mt-0">Arihant Creations</span>
           </h2>
-          <p className="text-white/70 text-lg md:text-xl mb-10 max-w-xl mx-auto font-normal">
+
+          <p className="text-white/80 text-base sm:text-lg md:text-xl mb-10 max-w-xl mx-auto font-normal text-center">
             Schedule a free site survey & technical evaluation today with our master engineers.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-md sm:max-w-none mx-auto">
             <a
               href={whatsappUrl}
               target="_blank"

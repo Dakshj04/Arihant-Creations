@@ -35,6 +35,7 @@ export default function ProductShowcase() {
                 src={IMAGES.slidingDoors}
                 alt="Lift and slide aluminium patio doors for luxury villas"
                 fill
+                sizes="(max-width: 768px) 100vw, 58vw"
                 className="object-cover transition-transform duration-700 hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#081C4B]/60 via-transparent to-transparent" />
@@ -97,6 +98,7 @@ export default function ProductShowcase() {
                     src={product.id === "sliding-windows" ? IMAGES.heroVilla : IMAGES.casementWindows}
                     alt={product.name}
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#081C4B]/50 via-transparent to-transparent" />
@@ -160,6 +162,7 @@ export default function ProductShowcase() {
                     src={IMAGES.officePartitions}
                     alt="Acoustic office glass partition"
                     fill
+                    sizes="(max-width: 768px) 100vw, 25vw"
                     className="object-cover"
                   />
                 </div>
@@ -168,6 +171,7 @@ export default function ProductShowcase() {
                     src={IMAGES.glassRailings}
                     alt="Frameless glass balustrade"
                     fill
+                    sizes="(max-width: 768px) 100vw, 25vw"
                     className="object-cover"
                   />
                 </div>

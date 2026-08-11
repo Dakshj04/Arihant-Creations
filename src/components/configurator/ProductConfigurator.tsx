@@ -88,6 +88,113 @@ Please share a formal architectural engineering quotation and profile catalog.`;
     return `https://wa.me/${BUSINESS.whatsapp}?text=${encodeURIComponent(text)}`;
   }, [selectedProduct, selectedColor, selectedGlass, selectedHandle, widthFt, heightFt, panelCount, priceCalc]);
 
+  // ── Download Architectural Spec Sheet (Print-to-PDF) ──
+  const handleDownloadSpec = () => {
+    const specContent = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Arihant Creations — Architectural Specification</title>
+        <style>
+          * { margin: 0; padding: 0; box-sizing: border-box; }
+          body { font-family: 'Segoe UI', system-ui, sans-serif; color: #081C4B; padding: 40px; }
+          .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #C5161D; padding-bottom: 16px; margin-bottom: 28px; }
+          .header h1 { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
+          .header .subtitle { font-size: 11px; color: #6B7280; text-transform: uppercase; letter-spacing: 2px; }
+          .badge { display: inline-block; background: #C5161D; color: white; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 1px; }
+          table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+          th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid #EEF2F6; font-size: 13px; }
+          th { background: #F8F9FB; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #081C4B; }
+          td:first-child { font-weight: 600; color: #6B7280; width: 40%; }
+          .price-box { background: #081C4B; color: white; padding: 20px; border-radius: 10px; text-align: center; margin: 24px 0; }
+          .price-box .label { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.7; margin-bottom: 6px; }
+          .price-box .value { font-size: 28px; font-weight: 800; }
+          .footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid #EEF2F6; font-size: 10px; color: #6B7280; text-align: center; }
+          .features { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0; }
+          .feature { background: #F8F9FB; padding: 8px 12px; border-radius: 6px; font-size: 12px; font-weight: 600; }
+          @media print { body { padding: 20px; } }
+        </style>
+      </head>
+      <body>
+        <div class="header">
+          <div>
+            <h1>ARIHANT CREATIONS</h1>
+            <div class="subtitle">Architectural Aluminium Systems — Custom Specification</div>
+          </div>
+          <div class="badge">Technical Spec Sheet</div>
+        </div>
+
+        <table>
+          <thead><tr><th>Parameter</th><th>Selected Specification</th></tr></thead>
+          <tbody>
+            <tr><td>System Type</td><td><strong>${selectedProduct.name}</strong></td></tr>
+            <tr><td>Profile Sightline</td><td>${selectedProduct.defaultSightlineMm}mm</td></tr>
+            <tr><td>Width</td><td>${widthFt} ft (${Math.round(widthFt * 304.8)} mm)</td></tr>
+            <tr><td>Height</td><td>${heightFt} ft (${Math.round(heightFt * 304.8)} mm)</td></tr>
+            <tr><td>Total Area</td><td>${priceCalc.sqFt} sq ft</td></tr>
+            <tr><td>Panel Configuration</td><td>${panelCount}-Panel Layout</td></tr>
+            <tr><td>Frame Finish</td><td>${selectedColor.name}</td></tr>
+            <tr><td>Glass Specification</td><td>${selectedGlass.name}</td></tr>
+            <tr><td>Glass Details</td><td>${selectedGlass.shortDesc}</td></tr>
+            <tr><td>Handle Hardware</td><td>${selectedHandle.name}</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:13px; margin-top:20px; margin-bottom:8px;">System Features</h3>
+        <div class="features">
+          ${selectedProduct.features.map((f: string) => `<div class="feature">✓ ${f}</div>`).join("")}
+        </div>
+
+        <div class="price-box">
+          <div class="label">Estimated Investment Range</div>
+          <div class="value">₹${priceCalc.min.toLocaleString("en-IN")} – ₹${priceCalc.max.toLocaleString("en-IN")}</div>
+        </div>
+
+        <div class="footer">
+          <p>Generated on ${new Date().toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })} • This is an indicative estimate. Final pricing subject to site survey.</p>
+          <p style="margin-top:6px;">Arihant Creations • ${BUSINESS.phone} • ${BUSINESS.email}</p>
+        </div>
+      </body>
+      </html>
+    `;
+
+    const printWindow = window.open("", "_blank");
+    if (printWindow) {
+      printWindow.document.write(specContent);
+      printWindow.document.close();
+      setTimeout(() => printWindow.print(), 400);
+    }
+  };
+
+  // ── Pre-Fill Quote Form with Configurator Data ──
+  const handlePreFillForm = () => {
+    const configSummary = `System: ${selectedProduct.name} | ${widthFt}ft×${heightFt}ft (${priceCalc.sqFt} sq ft) | ${panelCount} Panels | Frame: ${selectedColor.name} | Glass: ${selectedGlass.name} | Handle: ${selectedHandle.name} | Est: ₹${priceCalc.min.toLocaleString("en-IN")}–₹${priceCalc.max.toLocaleString("en-IN")}`;
+
+    // Scroll to contact form
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Pre-fill the message textarea after a brief delay for scroll
+    setTimeout(() => {
+      const messageField = document.getElementById("quote-message") as HTMLTextAreaElement | null;
+      if (messageField) {
+        messageField.value = configSummary;
+        messageField.dispatchEvent(new Event("input", { bubbles: true }));
+        // Also trigger React's onChange
+        const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
+          window.HTMLTextAreaElement.prototype,
+          "value"
+        )?.set;
+        if (nativeInputValueSetter) {
+          nativeInputValueSetter.call(messageField, configSummary);
+          messageField.dispatchEvent(new Event("input", { bubbles: true }));
+        }
+      }
+    }, 600);
+  };
+
   return (
     <div className="card-base p-6 sm:p-10 bg-white border border-[#EEF2F6] shadow-2xl rounded-3xl">
       <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
@@ -323,12 +430,26 @@ Please share a formal architectural engineering quotation and profile catalog.`;
               <MessageCircle className="w-4 h-4 text-white" />
               Send Configuration to WhatsApp
             </a>
-            <a
-              href="#contact"
-              className="btn-secondary w-full py-3.5 text-sm font-bold justify-center rounded-xl"
-            >
-              Book Site Survey With This System <ArrowRight className="w-4 h-4 ml-1" />
-            </a>
+
+            <div className="grid grid-cols-2 gap-3">
+              {/* PDF Spec Sheet Download */}
+              <button
+                onClick={handleDownloadSpec}
+                className="btn-secondary w-full py-3.5 text-sm font-bold justify-center rounded-xl"
+              >
+                <ArrowRight className="w-4 h-4 mr-1 rotate-[-90deg]" />
+                Download Spec Sheet
+              </button>
+
+              {/* Pre-Fill Quote Form */}
+              <button
+                onClick={handlePreFillForm}
+                className="btn-secondary w-full py-3.5 text-sm font-bold justify-center rounded-xl"
+              >
+                Pre-Fill Quote Form
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </button>
+            </div>
           </div>
 
         </div>

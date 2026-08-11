@@ -98,7 +98,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </>
         )}
       </head>
-      <body className="min-h-screen flex flex-col bg-[#F8F9FB] text-[#111827]">
+      <body className="min-h-screen flex flex-col bg-[#F8F9FB] text-[#111827] pb-20 lg:pb-0">
         <MotionWrapper>
           <Navbar />
           <main className="flex-1">{children}</main>

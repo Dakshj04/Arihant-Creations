@@ -141,6 +141,7 @@ export default function Hero() {
                   src={IMAGES.heroVilla}
                   alt="Modern luxury villa with expansive aluminium sliding doors"
                   fill
+                  sizes="(max-width: 768px) 100vw, 42vw"
                   className="object-cover transition-transform duration-700 hover:scale-105"
                   priority
                 />

@@ -73,6 +73,7 @@ export default function ProductsPage() {
                   }
                   alt={product.name}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#081C4B]/60 via-transparent to-transparent" />
